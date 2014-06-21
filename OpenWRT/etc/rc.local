@@ -1,6 +1,5 @@
 # Put your custom commands here that should be executed once
 # the system init finished. By default this file does nothing.
+echo "Create vpn ipset" >>'/tmp/v.log'
 ipset -N vpn iphash
-iptables -t mangle -A PREROUTING -m set --match-set vpn dst -j MARK --set-mark 1
-ip rule add fwmark 1 table 1
 exit 0
