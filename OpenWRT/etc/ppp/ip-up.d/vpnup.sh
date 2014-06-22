@@ -1,4 +1,6 @@
 #!/bin/sh
+LOG='/tmp/vpn.log'
+echo "VPN UP @$(date +"%T@%Y-%m-%d") >>$LOG
 VPN_DEV=$(ifconfig | grep "pptp" | sed -e "s#^\([^ ]*\) .*#\1#g")
 VPN_GW=$(ip route show dev $VPN_DEV | tail -n 1 |cut -d ' ' -f 1)
 ip route add 8.8.8.8 dev $VPN_DEV
