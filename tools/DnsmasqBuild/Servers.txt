@@ -1,0 +1,19 @@
+==============Clean DNS==================
+Googld DNS
+8.8.8.8
+8.8.4.4
+
+OpenDNS
+208.67.222.222
+208.67.220.220
+
+http://www.v2ex.com/t/99333
+60.190.217.130
+
+https://code.google.com/p/openerdns/
+42.120.21.30 
+
+http://onedns.net/setup.html
+112.124.47.27
+
+
