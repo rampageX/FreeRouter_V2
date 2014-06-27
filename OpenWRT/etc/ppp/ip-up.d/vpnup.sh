@@ -9,7 +9,7 @@ ip route add 8.8.4.4 dev $VPN_DEV
 ip route add 208.67.222.222 dev $VPN_DEV
 ip route add 208.67.220.220 dev $VPN_DEV
 #ip route add default via $VPN_GW table 1
-ip route add default dev $VPN_DEV table 1
-ip rule add fwmark 1 table 1
+ip route add default dev $VPN_DEV table vpn 
+ip rule add fwmark 1 table vpn
 /etc/init.d/dnsmasq restart
 
