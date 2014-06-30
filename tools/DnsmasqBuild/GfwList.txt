@@ -1,4 +1,5 @@
 adultfriendfinder.com
+amazonaws.com
 bbc.co.uk
 blogger.com
 blogspot.com
@@ -21,6 +22,7 @@ feedburner.com
 feedly.com
 feedsportal.com
 flickr.com
+freeweibo.com
 fsdn.com
 ggpht.com
 githubusercontent.com
@@ -28,9 +30,9 @@ gitubapp.com
 gmail.com
 google-analytics.com
 google.co.jp
-google.com
 google.com.hk
 google.com.tw
+google.com
 googleapis.com
 googlecode.com
 googlehosted.com
@@ -38,6 +40,7 @@ googletagservices.com
 googleusercontent.com
 googlevideo.com
 greatfire.org
+greatfirewallofchina.org
 gstatic.com
 hardsextube.com
 hootsuite.com

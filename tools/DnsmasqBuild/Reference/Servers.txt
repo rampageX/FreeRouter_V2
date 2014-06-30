@@ -6,7 +6,7 @@ Googld DNS
 OpenDNS
 208.67.222.222
 208.67.220.220
-
+=============Private DNS=================
 http://www.v2ex.com/t/99333
 60.190.217.130
 
@@ -15,5 +15,9 @@ https://code.google.com/p/openerdns/
 
 http://onedns.net/setup.html
 112.124.47.27
+
+==============China ISP DNS===============
+ShangHai Mobile
+211.136.150.66
 
 

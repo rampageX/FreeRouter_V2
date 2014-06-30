@@ -12,6 +12,7 @@ echo -e "Choose Your DNS Sever As Below:\n\
 ##4##:Shanghai Unicom\n\
 ##5##:Ovear DNS\n\
 ##6##:Opener DNS\n\
+##7##:Shanghai Mobile\n\
 Your Choice:"
 read DNSCount
 if [ $DNSCount = "0" ];
@@ -36,6 +37,9 @@ then
 elif [ $DNSCount = "6" ];
 then
 	ChinaDNS="112.124.47.27"
+elif [ $DNSCount = "7" ];
+then
+	ChinaDNS="211.136.150.66"
 else
 	echo "Wrong Select,Using 114DNS As Default!"
 	ChinaDNS="114.114.114.114"
