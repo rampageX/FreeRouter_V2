@@ -1,0 +1,2 @@
+download a folder:
+pscp -scp -pw 'RouterPassword' -r root@192.168.XXX.1:/etc/config d:/
