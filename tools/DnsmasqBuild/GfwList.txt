@@ -1,3 +1,4 @@
+##gfw.conf generated date:Sat Jun 28 13:31:48 CST 2014##
 adultfriendfinder.com
 amazonaws.com
 bbc.co.uk
@@ -5,7 +6,11 @@ blogger.com
 blogspot.com
 blogspot.jp
 bloomberg.com
+box.com
+box.net
+boxcdn.net
 cdn.sstatic.net
+cipherdyne.org
 ck101.com
 dailymotion.com
 discuss.com.hk
