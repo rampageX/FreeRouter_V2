@@ -28,3 +28,4 @@ bdimg.com
 upai.com
 staticfile.org
 useso.com
+sinaapp.com
