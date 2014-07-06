@@ -10,4 +10,3 @@ ip route add 8.8.4.4 dev $VPN_DEV
 ip route add default dev $VPN_DEV table vpn 
 ip rule add fwmark 1 priority 1984 table vpn
 /etc/init.d/dnsmasq restart
-
