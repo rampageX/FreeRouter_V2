@@ -10,6 +10,7 @@ Free Router V2的实现基于Dnsmasq  的IPSET功能,目前仅能用于OpenWRT,�
 
 具体的内容请参考本项目wiki:
 https://github.com/lifetyper/FreeRouter_V2/wiki
+
 如果你缺乏翻墙的一些基本知识和概念澄清,请一定先阅读V1的Wiki:
 https://github.com/lifetyper/FreeRouter/wiki
 
