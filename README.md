@@ -14,5 +14,7 @@ https://github.com/lifetyper/FreeRouter_V2/wiki
 https://github.com/lifetyper/FreeRouter/wiki
 
 如果你两个wiki都看过,有问题都Google过却还不是懂,只有两个可能:
+
 1.你并不是很需要翻墙嘛,没有动力没人能逼你学习.
+
 2.智商堪忧,建议改行.要知道我的工作是硬件工程师,我要改行做码农你都得饿死,那你还不重新规划一下人生?
