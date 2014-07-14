@@ -7,14 +7,50 @@ ipset create vpn iphash -exist
 echo "Add PREROUTING Rules @$(date +"%T@%Y-%m-%d")" >>/tmp/vpn.log
 iptables -t mangle -I PREROUTING -m set --match-set vpn dst -j MARK --set-mark 1
 echo "Add DNS Purify Rules @$(date +"%T@%Y-%m-%d")" >>/tmp/vpn.log
-iptables -I INPUT -p udp --sport 53 -m u32 --u32 "0&0x0F000000=0x05000000 && 22&0xFFFF@16=0x4A7D7F66,0x4A7D9B66,0x4A7D2766,0x4A7D2771,0xBDA31105,0xD155E58A,0xF9812E30,0x80797E8B,0x9F6A794B,0xA9840D67" -j DROP
-iptables -I INPUT -p udp --sport 53 -m u32 --u32 "0&0x0F000000=0x05000000 && 22&0xFFFF@16=0xC043C606,0xCA6A0102,0xCAB50755,0xCBA1E6AB,0xCB620741,0xCF0C5862,0xD0381F2B,0xD1913632,0xD1DC1EAE,0xD1244921" -j DROP
-iptables -I INPUT -p udp --sport 53 -m u32 --u32 "0&0x0F000000=0x05000000 && 22&0xFFFF@16=0xD35E4293,0xD5A9FB23,0xD8DDBCB6,0xD8EAB30D,0xF3B9BB27,0x253D369E,0x042442B2,0x2E52AE44,0x3B1803AD,0x402158A1" -j DROP
-iptables -I INPUT -p udp --sport 53 -m u32 --u32 "0&0x0F000000=0x05000000 && 22&0xFFFF@16=0x4021632F,0x4042A3FB,0x4168CAFC,0x41A0DB71,0x422DFCED,0x480ECD68,0x480ECD63,0x4E10310F,0x0807C62D,0x5D2E0859" -j DROP
-iptables -I FORWARD -p udp --sport 53 -m u32 --u32 "0&0x0F000000=0x05000000 && 22&0xFFFF@16=0x4A7D7F66,0x4A7D9B66,0x4A7D2766,0x4A7D2771,0xBDA31105,0xD155E58A,0xF9812E30,0x80797E8B,0x9F6A794B,0xA9840D67" -j DROP
-iptables -I FORWARD -p udp --sport 53 -m u32 --u32 "0&0x0F000000=0x05000000 && 22&0xFFFF@16=0xC043C606,0xCA6A0102,0xCAB50755,0xCBA1E6AB,0xCB620741,0xCF0C5862,0xD0381F2B,0xD1913632,0xD1DC1EAE,0xD1244921" -j DROP
-iptables -I FORWARD -p udp --sport 53 -m u32 --u32 "0&0x0F000000=0x05000000 && 22&0xFFFF@16=0xD35E4293,0xD5A9FB23,0xD8DDBCB6,0xD8EAB30D,0xF3B9BB27,0x253D369E,0x042442B2,0x2E52AE44,0x3B1803AD,0x402158A1" -j DROP
-iptables -I FORWARD -p udp --sport 53 -m u32 --u32 "0&0x0F000000=0x05000000 && 22&0xFFFF@16=0x4021632F,0x4042A3FB,0x4168CAFC,0x41A0DB71,0x422DFCED,0x480ECD68,0x480ECD63,0x4E10310F,0x0807C62D,0x5D2E0859" -j DROP
+#iptables -t mangle -I PREROUTING -p udp --sport 53 -m u32 --u32 "22&0xFFFF@16=0x4A7D7F66,0x4A7D9B66,0x4A7D2766,0x4A7D2771,0xBDA31105,0xD155E58A,0xF9812E30,0x80797E8B,0x9F6A794B,0xA9840D67" -j DROP
+#iptables -t mangle -I PREROUTING -p udp --sport 53 -m u32 --u32 "22&0xFFFF@16=0xC043C606,0xCA6A0102,0xCAB50755,0xCBA1E6AB,0xCB620741,0xCF0C5862,0xD0381F2B,0xD1913632,0xD1DC1EAE,0xD1244921" -j DROP
+#iptables -t mangle -I PREROUTING -p udp --sport 53 -m u32 --u32 "22&0xFFFF@16=0xD35E4293,0xD5A9FB23,0xD8DDBCB6,0xD8EAB30D,0xF3B9BB27,0x253D369E,0x042442B2,0x2E52AE44,0x3B1803AD,0x402158A1" -j DROP
+#iptables -t mangle -I PREROUTING -p udp --sport 53 -m u32 --u32 "22&0xFFFF@16=0x4021632F,0x4042A3FB,0x4168CAFC,0x41A0DB71,0x422DFCED,0x480ECD68,0x480ECD63,0x4E10310F,0x0807C62D,0x5D2E0859" -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|4A7D7F66|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|4A7D9B66|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|4A7D2766|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|4A7D2771|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|BDA31105|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|D155E58A|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|F9812E30|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|80797E8B|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|9F6A794B|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|A9840D67|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|C043C606|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|CA6A0102|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|CAB50755|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|CBA1E6AB|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|CB620741|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|CF0C5862|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|D0381F2B|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|D1913632|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|D1DC1EAE|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|D1244921|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|D35E4293|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|D5A9FB23|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|D8DDBCB6|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|D8EAB30D|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|F3B9BB27|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|253D369E|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|042442B2|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|2E52AE44|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|3B1803AD|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|402158A1|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|4021632F|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|4042A3FB|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|4168CAFC|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|41A0DB71|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|422DFCED|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|480ECD68|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|480ECD63|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|4E10310F|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|0807C62D|" --from 60 --to 180  -j DROP
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|5D2E0859|" --from 60 --to 180  -j DROP
 # Internal uci firewall chains are flushed and recreated on reload, so
 # put custom rules into the root chains e.g. INPUT or FORWARD or into the
 # special user chains, e.g. input_wan_rule or postrouting_lan_rule.
