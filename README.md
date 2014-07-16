@@ -1,7 +1,7 @@
 FreeRouter_V2
 =============
 
-FreeRouter V2方案基于Dnsmasq的IPSET功能,配合iptables防火墙的转发规则,将特定IPSET的数据打上标签后加入特定的ip table,再通过为iptable指定网络接口的方式实现不受封锁的访问.
+FreeRouter V2方案基于Dnsmasq的IPSET功能,配合iptables防火墙的转发规则,将特定IPSET的数据打上标签后加入特定的route table,再通过为route table指定网络接口的方式实现指定域名的不受封锁的访问.
 
 在应对DNS污染和劫持上,V2采用iptables防火墙过滤GFW发送的以及国内被污染DNS返回的劫持/污染数据包的方式,配合Dnsmasq的all-server选项,同时对境内境外DNS进行查询,在保证数据不受污染的同时保证了高速的DNS解析.
 
