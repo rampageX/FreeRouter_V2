@@ -9,10 +9,6 @@ echo -e "Choose Your DNS Sever As Below:\n\
 ##1##:114 DNS\n\
 ##2##:AliYun DNS\n\
 ##3##:CNNIC DNS\n\
-##4##:Shanghai Unicom\n\
-##5##:Ovear DNS\n\
-##6##:Opener DNS\n\
-##7##:Shanghai Mobile\n\
 Your Choice:"
 read DNSCount
 if [ $DNSCount = "0" ];
@@ -28,36 +24,18 @@ then
 elif [ $DNSCount = "3" ];
 then
 	ChinaDNS="1.2.4.8"
-elif [ $DNSCount = "4" ];
-then
-	ChinaDNS="210.22.84.3"
-elif [ $DNSCount = "5" ];
-then
-	ChinaDNS="60.190.217.130"
-elif [ $DNSCount = "6" ];
-then
-	ChinaDNS="112.124.47.27"
-elif [ $DNSCount = "7" ];
-then
-	ChinaDNS="211.136.150.66"
 else
 	echo "Wrong Select,Using 114DNS As Default!"
 	ChinaDNS="114.114.114.114"
 fi
 
 LocalOutput="./local.conf"
-GfwOutput="./gfw.conf"
 CDN_List="./LocalCDN.txt"
 Custom_List="./LocalCustom.txt"
-GFW_List="./GfwList.txt"
 CR='\015'
 if [ -f $LocalOutput ];
 then
 	rm -rf $LocalOutput
-fi
-if [ -f $GfwOutput ];
-then
-	rm -rf $GfwOutput
 fi
 echo "Autofix windows CR/LF issue in TXT file!"
 tr -d $CR <$CDN_List >TempListA.txt
@@ -66,14 +44,6 @@ mv TempListA.txt $CDN_List
 tr -d $CR <$Custom_List >TempListB.txt
 rm $Custom_List
 mv TempListB.txt $Custom_List 
-tr -d $CR <$GFW_List >TempListC.txt
-rm $GFW_List
-mv TempListC.txt $GFW_List
-echo "##gfw.conf generated date:$(date)##" >>$GfwOutput
-cat $GFW_List | while read SingleDomain
-do
-	echo "ipset=/$SingleDomain/vpn">>$GfwOutput
-done
 echo "##local.conf generated date:$(date)##" >>$LocalOutput
 echo "##local.conf generated date:$(date)##"
 echo "##All .CN Domain##" >>$LocalOutput
