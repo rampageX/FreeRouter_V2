@@ -62,5 +62,7 @@ iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-str
 iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|BC050460|" --from 60 --to 180  -j DROP
 iptables -t mangle -I PREROUTING -p udp --sport 53 -m string --algo bm --hex-string "|BDA31105|" --from 60 --to 180  -j DROP
 # Internal uci firewall chains are flushed and recreated on reload, so
+#block empty result from Local DNS hijack
+iptables -t mangle -I PREROUTING -p udp --sport 53 -m u32 --u32 "0>>22&0x3C@8&0xF=0 && 0>>22&0x3C@12&0xFF=0" -j DROP
 # put custom rules into the root chains e.g. INPUT or FORWARD or into the
 # special user chains, e.g. input_wan_rule or postrouting_lan_rule.
