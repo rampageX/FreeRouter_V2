@@ -1,0 +1,12 @@
+package openvpn
+
+config openvpn custom_config
+
+	# Set to 1 to enable this instance:
+	option enabled 1 
+
+	# Include OpenVPN configuration Provided By Your VPN Service Provider
+	# Add required option to the top of it refer to the handbook
+	option config /etc/openvpn/client.ovpn
+
+
