@@ -355,7 +355,6 @@ efukt.com
 egyig.com
 elpais.com
 emgog.com
-en.greatfire.org
 enfal.de
 englishforeveryone.org
 entnt.com
@@ -1476,7 +1475,6 @@ yzzk.com
 zacebook.com
 zend2.com
 zendproxy.com
-zh.greatfire.org
 zhengjian.org
 zhengwunet.org
 zhibo5.com
