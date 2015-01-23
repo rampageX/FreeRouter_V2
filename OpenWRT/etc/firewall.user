@@ -1,10 +1,10 @@
 # This file is interpreted as shell script.
 # Put your custom iptables rules here, they will
 # be executed with each firewall (re-)start.
-echo "Firewall start @$(date +"%T@%Y-%m-%d")" >>/tmp/vpn.log
-echo "Create IPSET @$(date +"%T@%Y-%m-%d")" >>/tmp/vpn.log
+echo "\$Log: Firewall started! @$(date +"%T@%Y-%m-%d")" >>/tmp/vpn.log
+echo "\$Log: IPSET created! @$(date +"%T@%Y-%m-%d")" >>/tmp/vpn.log
 ipset create vpn iphash -exist
-echo "Add PREROUTING Rules @$(date +"%T@%Y-%m-%d")" >>/tmp/vpn.log
+echo "\$Log: Add PREROUTING rules! @$(date +"%T@%Y-%m-%d")" >>/tmp/vpn.log
 iptables -t mangle -I PREROUTING -m set --match-set vpn dst -j MARK --set-mark 1
 # put custom rules into the root chains e.g. INPUT or FORWARD or into the
 # special user chains, e.g. input_wan_rule or postrouting_lan_rule.
